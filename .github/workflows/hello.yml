@@ -1,0 +1,16 @@
+name: Message Welcome to Game API
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  message-welcome:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: print message
+        run: echo "Game API"
+        shell: bash
+
