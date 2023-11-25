@@ -1,6 +1,6 @@
 ARG GOLANG_VERSION=1.21
 
-FROM golang:${GOLANG_VERSION} as builder
+FROM golang:${GOLANG_VERSION}
 
 LABEL maintainer="Igor097"
 
