@@ -3,8 +3,6 @@ ARG ALPINE_VERSION=latest
 
 FROM golang:${GOLANG_VERSION} as builder
 
-LABEL maintainer="Igor097"
-
 WORKDIR /app
 
 COPY go.mod go.sum /
@@ -12,7 +10,7 @@ RUN go mod download
 
 COPY . .
 
-RUN CGO_ENABLE=0 GOOS=linux GOARCH=amd64 go build -o gserver main.go
+RUN CGO_ENABLE=0 GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -o gserver main.go
 
 FROM alpine:${ALPINE_VERSION}
 
