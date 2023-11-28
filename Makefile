@@ -14,6 +14,9 @@ container-up: image-build
 	@docker container run -it -d -p 8080:8080 --rm --name $(CONTAINER_NAME) $(DOCKER_IMAGE)
 endif
 
+container-down:
+	@docker container rm -f $(CONTAINER_NAME)
+
 ifneq ($(GET_CONTAINER_IMAGE), $(CONTAINER_NAME))
 image-build:
 	@docker image build -t $(DOCKER_IMAGE) .
