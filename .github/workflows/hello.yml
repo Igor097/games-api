@@ -9,7 +9,7 @@ jobs:
   message-welcome:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: print message
         run: echo "Game API"
         shell: bash
